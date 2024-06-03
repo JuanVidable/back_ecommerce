@@ -11,7 +11,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @ToString
 @SuperBuilder
-public class ArticuloManufacturado extends Base {
+public class ArticuloManufacturado extends Articulo {
     private String descripcion;
 
 }
