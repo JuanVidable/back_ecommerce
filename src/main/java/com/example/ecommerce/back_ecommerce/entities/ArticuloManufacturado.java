@@ -13,5 +13,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 public class ArticuloManufacturado extends Articulo {
     private String descripcion;
-
+    private Integer tiempoEstimadoMinutos;
+    private String preparacion;
 }
