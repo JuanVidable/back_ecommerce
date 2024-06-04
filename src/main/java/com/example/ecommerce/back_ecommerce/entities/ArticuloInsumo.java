@@ -11,8 +11,8 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @ToString
 @SuperBuilder
-public class ArticuloManufacturado extends Articulo {
-    private String descripcion;
-    private Integer tiempoEstimadoMinutos;
-    //private String preparacion;
+public class ArticuloInsumo extends Articulo {
+    private Double precioCompra;
+    private Boolean esParaElaborar;
+
 }
