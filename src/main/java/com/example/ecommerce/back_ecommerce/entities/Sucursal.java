@@ -1,5 +1,6 @@
 package com.example.ecommerce.back_ecommerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -17,30 +18,30 @@ public class Sucursal extends Base{
     private String nombre;
     private String logo;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Domicilio domicilio;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    private Domicilio domicilio;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @JoinTable(name = "sucursal_promocion",
-            joinColumns = @JoinColumn(name = "promocion_id"),
-            inverseJoinColumns = @JoinColumn(name = "sucursal_id"))
-    //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
-    @Builder.Default
-    private Set<Promocion> promociones = new HashSet<>();
+//    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+//    @ToString.Exclude
+//    @JoinTable(name = "sucursal_promocion",
+//            joinColumns = @JoinColumn(name = "promocion_id"),
+//            inverseJoinColumns = @JoinColumn(name = "sucursal_id"))
+//    //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
+//    @Builder.Default
+//    private Set<Promocion> promociones = new HashSet<>();
 
-
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
     @ToString.Exclude
     //SE AGREGA EL JOIN TABLE PARA QUE JPA CREE LA TABLA INTERMEDIA
     // EN UNA RELACION MANY TO MANY
     @JoinTable(name = "sucursal_categoria",
-            joinColumns = @JoinColumn(name = "sucursal_id"),
+              joinColumns = @JoinColumn(name = "sucursal_id"),
             inverseJoinColumns = @JoinColumn(name = "categoria_id"))
     //SE AGREGA EL BUILDER.DEFAULT PARA QUE BUILDER NO SOBREESCRIBA LA INICIALIZACION DE LA LISTA
     @Builder.Default
     private Set<Categoria> categorias = new HashSet<>();
-
-    @ManyToOne
-    private Empresa empresa;
+    //@JsonIgnore
+    //@ManyToOne
+    //private Empresa empresa;
 }

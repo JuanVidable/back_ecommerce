@@ -18,6 +18,6 @@ public class PromocionDetalle extends Base{
 
     private int cantidad;
 
-    @ManyToOne
-    private Articulo articulo;
+    //@ManyToOne
+    //private Articulo articulo;
 }

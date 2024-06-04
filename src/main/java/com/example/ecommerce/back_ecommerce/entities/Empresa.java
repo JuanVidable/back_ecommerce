@@ -21,8 +21,8 @@ public class Empresa extends Base{
     private Long cuit;
     private String logo;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "empresa")
-    @Builder.Default
-    private Set<Sucursal> sucursales = new HashSet<>();
+    //@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "empresa")
+    //@Builder.Default
+    //private Set<Sucursal> sucursales = new HashSet<>();
 
 }
